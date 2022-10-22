@@ -142,9 +142,13 @@ From your whatsapp application, send a message to the number you get from step 4
 Any message send to that number will trigger your webhook.
 
 The router will consume the message and will:
+
 1) check if the user is associated with any agent.
+
 2) if yes, publish the message in the agent_X-in topic.
+
 3) if no, display the list options with all registered agents (you can register a new agent using the agent service)
+
 4) anytime you can type **#exit** to disconnect from the agent and return to main menu.
 
 
