@@ -62,7 +62,7 @@ func (h *RouterWebhook) Dispatch(inputBytes []byte) error {
 		if err = h.UpdateStatus(webhookDecoded.WaID, ROUTER_ID, webhookDecoded.Origin); err != nil {
 			return err
 		}
-		if err := h.sender.SendText("closing....", webhookDecoded.WaID); err != nil {
+		if err := h.sender.SendText("Finish your conversation. Going back to main menu.", webhookDecoded.WaID); err != nil {
 			return err
 		}
 		if err := h.SendMenuOptions(webhookDecoded.WaID); err != nil {
