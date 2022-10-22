@@ -35,4 +35,4 @@ ReactJS: used to build the simple chatbot interface
 
 
 ## Architecture
-![alt](assets/broker.jpg)
+![](assets/broker.png)
