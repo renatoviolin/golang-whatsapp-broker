@@ -45,7 +45,7 @@ The system has the following microservices:
 
 - [router](/router): this is the core application, which consume all messages from <b>webhook</b> topic and deliver for each associated agent. The router also generate the first message asking the user to select an available agent.
 
-- [admin](/admin): this is a CRUD API to create and mange the agents. TODO: this service need an user interface to make easy manage the agents.
+- [admin](/admin): this is a CRUD API to create and mange the agents. Here is the [Postman collection](assets/Admin.postman_collection.json).
 
 - [agent](/agent/backend): this is the demo application that show how to consume the messages from the *-in and *-error topics, store each message in it's own mongodb and connect via websockt with the [frontend](/agent/frontend).
 
@@ -137,7 +137,7 @@ If you type something and send, you'll receive a message telling you are not con
 
 
 ### Step 8 Talking
-From your whatsapp application, send a message to the number you get from step 4. It must start with 1 800 *****.
+From your whatsapp application, send a message to the number you get from step 4. It must start with 1 (555) *****.
 
 Any message send to that number will trigger your webhook.
 
