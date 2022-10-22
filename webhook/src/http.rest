@@ -1,0 +1,57 @@
+@apiurl = http://localhost:5000
+
+### ====== CHECK ONLINE ===========
+GET {{apiurl}}
+
+
+### ====== POST MESSAGE ===========
+POST {{apiurl}}/webhook
+Content-Type: application/json
+
+{
+    "object": "whatsapp_business_account",
+    "entry": [
+        {
+            "id": "103471172512719",
+            "changes": [
+                {
+                    "value": {
+                        "messaging_product": "whatsapp",
+                        "metadata": {
+                            "display_phone_number": "15550915609",
+                            "phone_number_id": "102261592636695"
+                        },
+                        "contacts": [
+                            {
+                                "profile": {
+                                    "name": "Renato"
+                                },
+                                "wa_id": "5516993259256"
+                            }
+                        ],
+                        "messages": [
+                            {
+                                "from": "5516993259256",
+                                "id": "wamid.HBgNNTUxNjk5MzI1OTI1NhUCABIYFDNBMTdFMTAzODIwMUEwMDIyOTJBAA==",
+                                "timestamp": "1663444803",
+                                "text": {
+                                    "body": "client_c"
+                                },
+                                "type": "text"
+                            }
+                        ]
+                    },
+                    "field": "messages"
+                }
+            ]
+        }
+    ]
+}
+
+### ====== POST MESSAGE Status ===========
+POST {{apiurl}}/webhook
+Content-Type: application/json
+
+{"object":"whatsapp_business_account","entry":[{"id":"103471172512719","changes":[{"value":{"messaging_product":"whatsapp","metadata":{"display_phone_number":"15550915609","phone_number_id":"102261592636695"},"contacts":[{"profile":{"name":"Renato"},"wa_id":"5516993259256"}],"messages":[{"from":"5516993259256","id":"wamid.HBgNNTUxNjk5MzI1OTI1NhUCABIYFDNFQjBEMEM2M0Q1Mzg3ODA5OENFAA==","timestamp":"1664051804","text":{"body":"sair"},"type":"text"}]},"field":"messages"}]}]}
+### ====== GET MESSAGE ===========
+GET {{apiurl}}/webhooks?hub.mode=subscribe&hub.challenge=1158201444&hub.verify_token=12345

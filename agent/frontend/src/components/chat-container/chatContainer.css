@@ -1,0 +1,6 @@
+.chat-container {
+    margin-top: 20px;
+    width: 500px;
+    border: solid 1.0px rgb(0, 29, 143);
+    border-radius: 8px;
+}

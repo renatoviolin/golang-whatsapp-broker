@@ -1,0 +1,7 @@
+@apiurl = http://localhost:6000
+
+### ====== CHECK ONLINE ===========
+GET {{apiurl}}
+
+### ====== GET MESSAGE ===========
+GET {{apiurl}}/consume

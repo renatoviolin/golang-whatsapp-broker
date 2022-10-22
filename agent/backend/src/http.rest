@@ -1,0 +1,30 @@
+@apiurl = http://localhost:7000
+
+### ====== CHECK ONLINE ===========
+GET {{apiurl}}
+
+
+### ====== POST MESSAGE ===========
+POST {{apiurl}}/send-message
+content-type: application/json
+
+{
+    "type": "text",
+    "waID": "5516993259256",
+    "text": "voce aqui denovo"
+}
+
+
+### ====== POST MESSAGE ===========
+POST {{apiurl}}/send-message
+content-type: application/json
+
+{
+    "type": "list",
+    "waID": "5516993259255",
+    "text": "Titulo do Header",
+    "list_items": [
+        {"id": "id_1", "title":"Titulo 1"},
+        {"id": "id_2", "title":"Titulo 2"}
+    ]
+}

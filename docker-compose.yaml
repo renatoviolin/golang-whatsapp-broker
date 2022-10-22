@@ -1,0 +1,66 @@
+version: '3'
+services:
+  zookeeper:
+    image: zookeeper
+    container_name: broker-zookeeper
+
+  kafka:
+    image: bitnami/kafka:latest
+    container_name: broker-kafka
+    ports:
+      - 9092:9092
+      - 9093:9093
+    environment:
+      - ALLOW_PLAINTEXT_LISTENER=yes
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+      - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CLIENT:PLAINTEXT,EXTERNAL:PLAINTEXT
+      - KAFKA_CFG_LISTENERS=CLIENT://:9092,EXTERNAL://:9093
+      - KAFKA_CFG_ADVERTISED_LISTENERS=CLIENT://kafka:9092,EXTERNAL://localhost:9093
+      - KAFKA_CFG_INTER_BROKER_LISTENER_NAME=CLIENT
+    depends_on:
+      - zookeeper
+    extra_hosts:
+      - "host.docker.internal:172.17.0.1"
+
+  kafka-ui:
+    image: provectuslabs/kafka-ui
+    container_name: broker-kafka-ui
+    ports:
+      - "8080:8080"
+    restart: always
+    depends_on:
+      - kafka
+      - zookeeper
+    environment:
+      - KAFKA_CLUSTERS_0_NAME=local
+      - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka:9092
+      - KAFKA_CLUSTERS_0_ZOOKEEPER=zookeeper:2181
+
+  redis:
+    image: redis:latest
+    container_name: broker-redis
+    restart: always
+    ports:
+      - '6379:6379'
+
+  postgres:
+    container_name: broker-postgres
+    image: postgres:alpine
+    environment:
+      - POSTGRES_DB=broker_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+    volumes:
+      - ./create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
+    ports:
+      - '5432:5432'
+
+  mongo:
+    image: mongo:latest
+    container_name: broker-mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: user
+      MONGO_INITDB_ROOT_PASSWORD: secret
+    ports:
+      - '27017:27017'
