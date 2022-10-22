@@ -6,6 +6,7 @@ The motivation started from the fact that Whatsapp Business Platform is now open
 
 Hope you can enjoy it and help-me to improve this project.
 
+[**Preview in youtube**](https://youtu.be/JE50HTfeKgw)
 
 ## Main goals
 <ol> 
