@@ -99,7 +99,7 @@ Once configured you will see Whatsapp Business calling your webook with provided
 
 
 ### Step 5. Get the temporary Whatsapp Token
-With a developer account you can send up to 1000 messages within 24h and register up to 5 whatsapp numbers that can be used to connect with you.
+With a developer account you can send up to 1000 messages within 24h time window, and register up to 5 whatsapp numbers that can send message to your whatsapp businness account.
 
 The provided token will be used in the **router** service.
 
