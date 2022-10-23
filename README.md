@@ -6,11 +6,13 @@ This is an Open-Source project with the goal to build a whatsapp broker that con
 
 The motivation started from the fact that Whatsapp Business Platform is now open to "any" company to connect without the use of a 3rd party payed service.
 
-Hope you can enjoy it and help-me to improve this project.
+Hope you can enjoy it and help me to improve this project.
 
 [**Preview in youtube**](https://youtu.be/JE50HTfeKgw)
 
 ## Main goals
+![](assets/connection.jpg)
+
 <ol> 
 <li>Build a <b>webhook</b> to connect with Whatsapp Business Plataform without any 3rd party company. </li>
 <li>With one whatsapp business number, be able to connect several agents, for example:</li>
@@ -42,7 +44,7 @@ ReactJS: used to build the simple chatbot interface
 
 
 ## Architecture
-![](assets/broker.png)
+![](assets/broker.jpg)
 The system has the following microservices:
 - [webhook](/webhook): expose the /webhook endpoint that is needed by Whatsapp Business Plafatorm. There's a GET endpoint which is used to validade the identity (by a token you provied) and the POST endpoint which receives all the payload from Whatsapp. All payload is stores in the <b>webhook</b> topic.
 
